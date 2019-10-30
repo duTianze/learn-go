@@ -21,18 +21,14 @@ func parseScriptHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	script := r.Form.Get("script")
-	fmt.Println("script: ", script)
-
 	edgeType := r.Form.Get("edge-type")
-	fmt.Println("edge-type: ", edgeType)
+	fmt.Println("script: ", script, "\n", "edge-type: ", edgeType)
 
 	result := parseScript(script, edgeType)
-	fmt.Println("result: ", result)
-
-	json.NewEncoder(w).Encode(result)
+	w.Write(result)
 }
 
-func parseScript(rawScript string, edgeType string) (cookedScript string) {
+func parseScript(rawScript string, edgeType string) (cookedScript []byte) {
 	d := deadman{}
 	scope := stateful.NewScope()
 	var p *pipeline.Pipeline
@@ -43,7 +39,7 @@ func parseScript(rawScript string, edgeType string) (cookedScript string) {
 		p, _ = pipeline.CreatePipeline(rawScript, pipeline.BatchEdge, scope, d, nil)
 	}
 	got, _ := json.MarshalIndent(p, "", "    ")
-	return string(got)
+	return got
 }
 
 type deadman struct {
