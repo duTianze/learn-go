@@ -9,19 +9,11 @@ import (
 	"time"
 )
 
-type deadman struct {
-	interval  time.Duration
-	threshold float64
-	id        string
-	message   string
-	global    bool
+func main() {
+	fmt.Println("server start...")
+	http.HandleFunc("/", parseScriptHandler)
+	http.ListenAndServe(":12345", nil)
 }
-
-func (d deadman) Interval() time.Duration { return d.interval }
-func (d deadman) Threshold() float64      { return d.threshold }
-func (d deadman) Id() string              { return d.id }
-func (d deadman) Message() string         { return d.message }
-func (d deadman) Global() bool            { return d.global }
 
 func parseScriptHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
@@ -45,17 +37,25 @@ func parseScript(rawScript string, edgeType string) (cookedScript string) {
 	scope := stateful.NewScope()
 	var p *pipeline.Pipeline
 	switch edgeType {
-		case "stream":
-			p, _ = pipeline.CreatePipeline(rawScript, pipeline.StreamEdge, scope, d, nil)
-		case "batch":
-			p, _ = pipeline.CreatePipeline(rawScript, pipeline.BatchEdge, scope, d, nil)
+	case "stream":
+		p, _ = pipeline.CreatePipeline(rawScript, pipeline.StreamEdge, scope, d, nil)
+	case "batch":
+		p, _ = pipeline.CreatePipeline(rawScript, pipeline.BatchEdge, scope, d, nil)
 	}
 	got, _ := json.MarshalIndent(p, "", "    ")
 	return string(got)
 }
 
-func main() {
-	fmt.Println("server start...")
-	http.HandleFunc("/", parseScriptHandler)
-	http.ListenAndServe(":12345", nil)
+type deadman struct {
+	interval  time.Duration
+	threshold float64
+	id        string
+	message   string
+	global    bool
 }
+
+func (d deadman) Interval() time.Duration { return d.interval }
+func (d deadman) Threshold() float64      { return d.threshold }
+func (d deadman) Id() string              { return d.id }
+func (d deadman) Message() string         { return d.message }
+func (d deadman) Global() bool            { return d.global }
