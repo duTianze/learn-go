@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/influxdata/kapacitor/pipeline"
 	"github.com/influxdata/kapacitor/tick/stateful"
+	"io/ioutil"
 	"net/http"
 	"time"
 )
@@ -18,13 +19,17 @@ func main() {
 func parseScriptHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Accept", "application/x-www-form-urlencoded")
 	w.WriteHeader(http.StatusCreated)
 
-	script := r.Form.Get("script")
 	edgeType := r.Form.Get("edge-type")
+	script, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println("script: ", script, "\n", "edge-type: ", edgeType)
 
-	result := parseScript(script, edgeType)
+	result := parseScript(string(script), edgeType)
 	w.Write(result)
 }
 

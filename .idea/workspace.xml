@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helloNet.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="336">
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="22" />
               <folding>
                 <element signature="e#14#26#0" expanded="true" />
               </folding>
@@ -68,8 +68,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>type HandlerFunc func(Re</find>
-      <find>HandleFunc</find>
       <find>edge-type</find>
+      <find>HandleFunc</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.13.3/libexec" />
@@ -95,10 +95,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1440" />
-    <option name="y" value="-289" />
+    <option name="x" value="1508" />
+    <option name="y" value="-195" />
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="797" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -175,16 +175,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572403229285</updated>
-      <workItem from="1572403230659" duration="5470000" />
+      <workItem from="1572403230659" duration="8497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5470000" />
+    <option name="totallyTimeSpent" value="8497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-289" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="UI Designer" />
@@ -199,7 +198,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.407669" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32492432" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -223,13 +222,6 @@
     <entry file="file://$PROJECT_DIR$/testArray.ipynb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file:///usr/local/Cellar/go/1.13.3/libexec/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="1997" lean-forward="true" selection-start-line="1997" selection-end-line="1997" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/go/1.13.3/libexec/src/net/http/status.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -244,6 +236,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/Cellar/go/1.13.3/libexec/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="1997" lean-forward="true" selection-start-line="1997" selection-end-line="1997" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/local/Cellar/go/1.13.3/libexec/src/encoding/json/encode.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -253,8 +252,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/helloNet.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="336">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="22" />
           <folding>
             <element signature="e#14#26#0" expanded="true" />
           </folding>
