@@ -32,12 +32,17 @@ func parseScript(rawScript string, edgeType string) (cookedScript []byte) {
 	d := deadman{}
 	scope := stateful.NewScope()
 	var p *pipeline.Pipeline
+	var err error
 	switch edgeType {
 	case "stream":
-		p, _ = pipeline.CreatePipeline(rawScript, pipeline.StreamEdge, scope, d, nil)
+		p, err = pipeline.CreatePipeline(rawScript, pipeline.StreamEdge, scope, d, nil)
 	case "batch":
-		p, _ = pipeline.CreatePipeline(rawScript, pipeline.BatchEdge, scope, d, nil)
+		p, err = pipeline.CreatePipeline(rawScript, pipeline.BatchEdge, scope, d, nil)
 	}
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("pipeline:", p)
 	got, _ := json.MarshalIndent(p, "", "    ")
 	return got
 }
